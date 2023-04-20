@@ -37,7 +37,6 @@ class Server:
             """Get page"""
             assert type(page) == int and type(page_size) == int\
             and page > 0 and page_size > 0
-            "Page must be a positive integer"
             start, end = index_range(page, page_size)
         try:
             self.dataset()
