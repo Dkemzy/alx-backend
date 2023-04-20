@@ -2,7 +2,8 @@
 """1. Simple pagination"""
 import csv
 import math
-from typing import List
+from typing import List, Tuple
+
 
 def index_range(page: int, page_size: int) -> Tuple:
     '''
@@ -14,6 +15,8 @@ def index_range(page: int, page_size: int) -> Tuple:
     start_index = page * page_size - page_size
     stop_index = page * page_size
     return (start_index, stop_index)
+
+
 class Server:
     """Server class to paginate a database of popular baby names.
     """
@@ -34,10 +37,10 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            """Get page"""
-            assert type(page) == int and type(page_size) == int\
+        """Get page"""
+        assert type(page) == int and type(page_size) == int\
             and page > 0 and page_size > 0
-            start, end = index_range(page, page_size)
+        start, end = index_range(page, page_size)
         try:
             self.dataset()
             return self.__dataset[start:end]
