@@ -43,4 +43,3 @@ class LFUCache(BaseCaching):
             if self.__access[keys[lrk]] > self.__access[keys[i]]:
                 lrk = i
         return keys[lrk]
-    
